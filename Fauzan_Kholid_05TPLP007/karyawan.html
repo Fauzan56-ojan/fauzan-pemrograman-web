@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard Karyawan</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="icon" href="it.png" type="image/png">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet" />
+</head>
+<body class="bg-gray-100">
+    <div class="flex">
+        <!-- Sidebar -->
+        <div class="w-64 bg-white h-auto shadow-md">
+            <div class="p-4 bg-blue-600 text-white">
+                <div class="flex items-center">
+                    <!-- <img src="" alt="Company Logo" class="w-10 h-10 mr-2" width="40" height="40" /> -->
+                    <img src="it.png" alt="User Avatar" class="w-10 h-10 rounded-full mr-2" width="40" height="40"/>
+                    <div>
+                        <h1 class="text-lg font-bold">PT INDUSTRI TEKNOLOGI</h1>
+                    </div>
+                </div>
+            </div>
+            <div class="p-4">
+                <div class="flex items-center mb-4">
+                    <img src="user.png" alt="User Avatar" class="w-10 h-10 rounded-full mr-2" width="40" height="40"/>
+                    <div>
+                        <p class="font-semibold">Fauzan Kholid</p>
+                        <p class="text-sm text-gray-600">Administrator</p>
+                    </div>
+                </div>
+                <nav>
+                    <ul>
+                        <li class="mb-2">
+                          <a href="index.html" class="flex items-center p-2 text-gray-700 hover:bg-gray-200 rounded scroll-to-top">
+                                <i class="fas fa-tachometer-alt mr-2"></i> Dashboard
+                            </a>
+                        </li>
+                        <a><strong>MENU KARYAWAN</strong></a>
+                        <li class="mb-2">
+                            <a href="karyawan.html" class="flex items-center p-2 bg-blue-600 text-white hover:bg-blue-600 rounded">
+                                <i class="fas fa-users mr-2"></i> Karyawan
+                            </a>
+                        </li>
+                        <li class="mb-2">
+                            <a href="jabatan.html" class="flex items-center p-2 text-gray-700 hover:bg-gray-200 rounded">
+                                <i class="fas fa-briefcase mr-2"></i> Jabatan
+                            </a>
+                        </li>
+                        <li class="mb-2">
+                          <a href="divisi.html" class="flex items-center p-2 text-gray-700 hover:bg-gray-200 rounded">
+                              <i class="fas fa-sitemap mr-2"></i> Divisi
+                          </a>
+                        </li> 
+                        <a><strong>MENU ABSENSI</strong></a>                    
+                        <li class="mb-2">
+                            <a href="absensi.html" class="flex items-center p-2 text-gray-700 hover:bg-gray-200 rounded">
+                                <i class="fas fa-calendar-check mr-2"></i> Absensi
+                            </a>
+                        </li>
+                        <li class="mb-2">
+                            <a href="izin.html" class="flex items-center p-2 text-gray-700 hover:bg-gray-200 rounded">
+                                <i class="fas fa-envelope-open-text mr-2"></i> Izin
+                            </a>
+                        </li>
+                        <li class="mb-2">
+                            <a href="lembur.html" class="flex items-center p-2 text-gray-700 hover:bg-gray-200 rounded">
+                                <i class="fas fa-clock mr-2"></i> Lembur
+                            </a>
+                        </li>
+                        <a><strong>MENU PENGGAJIAN</strong></a>
+                        <li class="mb-2">
+                          <a href="slip-gaji.html" class="flex items-center p-2 text-gray-700 hover:bg-gray-200 rounded">
+                              <i class="fas fa-file-invoice-dollar mr-2"></i> Slip Gaji
+                          </a>
+                      </li>
+                      <li class="mb-2">
+                        <a href="cetak-slip-gaji.html" class="flex items-center p-2 text-gray-700 hover:bg-gray-200 rounded">
+                            <i class="fas fa-print mr-2"></i> Cetak Slip Gaji
+                        </a>
+                      </li>
+                      <a><strong>MENU LAPORAN</strong></a>
+                      <li class="mb-2">
+                        <a href="cetak-laporan.html" class="flex items-center p-2 text-gray-700 hover:bg-gray-200 rounded">
+                            <i class="fas fa-file-alt mr-2"></i> Cetak Laporan
+                        </a>
+                    </li>                    
+                      <a><strong>MENU ADMIN</strong></a>
+                      <li class="mb-2">
+                        <a href="pengguna.html" class="flex items-center p-2 text-gray-700 hover:bg-gray-200 rounded">
+                            <i class="fas fa-user mr-2"></i> Pengguna
+                        </a>
+                    </li>
+                    <li class="mb-2">
+                      <a href="index.html" class="flex items-center justify-center p-2 bg-blue-500 text-white hover:bg-blue-700 rounded scroll-to-top">
+                          <i class="fas fa-sign-out-alt mr-2"></i> Logout
+                      </a>
+                  </li>                                                                            
+                    </ul>
+                </nav>
+            </div>
+        </div>
+
+        <!-- Main Content -->
+        <div class="flex-1 p-6">
+            <div class="bg-blue-600 text-white p-4 rounded shadow-md mb-6">
+                <h1 class="text-3xl font-bold">Sistem Informasi Manajemen Karyawan</h1>
+            </div>
+            <div class="flex justify-between items-center mb-4">
+                <h2 class="text-2xl font-bold">Data Karyawan</h2>
+                <button onclick="showForm()" class="bg-blue-500 text-white px-4 py-2 rounded shadow hover:bg-blue-600">+ Tambah Karyawan</button>
+            </div>
+            <div class="flex justify-between items-center mb-4">
+                <div class="flex items-center space-x-2">
+                    <span>Show</span>
+                    <select class="border rounded p-1">
+                        <option>10</option>
+                        <option>25</option>
+                        <option>50</option>
+                        <option>100</option>
+                    </select>
+                    <span>entries</span>
+                </div>
+                <div>
+                    <input type="text" placeholder="Search..." class="border rounded p-2">
+                </div>
+            </div>
+            <div class="overflow-x-auto">
+                <table id="tabelKaryawan" class="min-w-full bg-white border border-gray-300">
+                    <thead class="bg-gray-200 text-gray-700">
+                        <tr>
+                            <th class="px-4 py-2 border">No</th>
+                            <th class="px-4 py-2 border">Kode</th>
+                            <th class="px-4 py-2 border">Nama</th>
+                            <th class="px-4 py-2 border">Email</th>
+                            <th class="px-4 py-2 border">Alamat</th>
+                            <th class="px-4 py-2 border">Jabatan</th>
+                            <th class="px-4 py-2 border">Aksi</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="bg-white hover:bg-gray-100">
+                            <td class="px-4 py-2 border text-center">1</td>
+                            <td class="px-4 py-2 border text-center">K001</td>
+                            <td class="px-4 py-2 border">Fauzan</td>
+                            <td class="px-4 py-2 border">Fauzan@gmail.com</td>
+                            <td class="px-4 py-2 border">Tangerang</td>
+                            <td class="px-4 py-2 border text-center">Direktur</td>
+                            <td class="px-4 py-2 border text-center space-x-2">
+                                <button onclick="lihatKaryawan(this.parentElement.parentElement)" class="text-blue-500 hover:text-blue-700">
+                                    <i class="fas fa-eye"></i>
+                                </button>
+                                <button onclick="editKaryawan(this.parentElement.parentElement)" class="text-blue-500 hover:text-green-700">
+                                    <i class="fas fa-edit"></i>
+                                </button>
+                                <button onclick="hapusKaryawan(this.parentElement.parentElement)" class="text-red-500 hover:text-red-700">
+                                    <i class="fas fa-trash"></i>
+                                </button>
+                            </td>
+                        </tr>
+                        <tr class="bg-white hover:bg-gray-100">
+                            <td class="px-4 py-2 border text-center">2</td>
+                            <td class="px-4 py-2 border text-center">K002</td>
+                            <td class="px-4 py-2 border">Yovan Fiqri</td>
+                            <td class="px-4 py-2 border">Fauzan@gmail.com</td>
+                            <td class="px-4 py-2 border">Pamulang</td>
+                            <td class="px-4 py-2 border text-center">Manajer</td>
+                            <td class="px-4 py-2 border text-center space-x-2">
+                                <button onclick="lihatKaryawan(this.parentElement.parentElement)" class="text-blue-500 hover:text-blue-700">
+                                    <i class="fas fa-eye"></i>
+                                </button>
+                                <button onclick="editKaryawan(this.parentElement.parentElement)" class="text-blue-500 hover:text-green-700">
+                                    <i class="fas fa-edit"></i>
+                                </button>
+                                <button onclick="hapusKaryawan(this.parentElement.parentElement)" class="text-red-500 hover:text-red-700">
+                                    <i class="fas fa-trash"></i>
+                                </button>
+                            </td>
+                        </tr>
+                        <tr class="bg-white hover:bg-gray-100">
+                            <td class="px-4 py-2 border text-center">3</td>
+                            <td class="px-4 py-2 border text-center">K003</td>
+                            <td class="px-4 py-2 border">Fauzan</td>
+                            <td class="px-4 py-2 border">Fauzan@gmail.com</td>
+                            <td class="px-4 py-2 border">Pamulang</td>
+                            <td class="px-4 py-2 border text-center">Staff</td>
+                            <td class="px-4 py-2 border text-center space-x-2">
+                                <button onclick="lihatKaryawan(this.parentElement.parentElement)" class="text-blue-500 hover:text-blue-700">
+                                    <i class="fas fa-eye"></i>
+                                </button>
+                                <button onclick="editKaryawan(this.parentElement.parentElement)" class="text-blue-500 hover:text-green-700">
+                                    <i class="fas fa-edit"></i>
+                                </button>
+                                <button onclick="hapusKaryawan(this.parentElement.parentElement)" class="text-red-500 hover:text-red-700">
+                                    <i class="fas fa-trash"></i>
+                                </button>
+                            </td>
+                        </tr>
+                        <tr class="bg-white hover:bg-gray-100">
+                            <td class="px-4 py-2 border text-center">4</td>
+                            <td class="px-4 py-2 border text-center">K004</td>
+                            <td class="px-4 py-2 border">Yovan Fiqri</td>
+                            <td class="px-4 py-2 border">Fauzan@gmail.com</td>
+                            <td class="px-4 py-2 border">Pamulang</td>
+                            <td class="px-4 py-2 border text-center">Staff</td>
+                            <td class="px-4 py-2 border text-center space-x-2">
+                                <button onclick="lihatKaryawan(this.parentElement.parentElement)" class="text-blue-500 hover:text-blue-700">
+                                    <i class="fas fa-eye"></i>
+                                </button>
+                                <button onclick="editKaryawan(this.parentElement.parentElement)" class="text-blue-500 hover:text-green-700">
+                                    <i class="fas fa-edit"></i>
+                                </button>
+                                <button onclick="hapusKaryawan(this.parentElement.parentElement)" class="text-red-500 hover:text-red-700">
+                                    <i class="fas fa-trash"></i>
+                                </button>
+                            </td>
+                        </tr>
+                        <tr class="bg-white hover:bg-gray-100">
+                            <td class="px-4 py-2 border text-center">5</td>
+                            <td class="px-4 py-2 border text-center">K005</td>
+                            <td class="px-4 py-2 border">Fauzan</td>
+                            <td class="px-4 py-2 border">Fauzan@gmail.com</td>
+                            <td class="px-4 py-2 border">Pamulang</td>
+                            <td class="px-4 py-2 border text-center">Staff</td>
+                            <td class="px-4 py-2 border text-center space-x-2">
+                                <button onclick="lihatKaryawan(this.parentElement.parentElement)" class="text-blue-500 hover:text-blue-700">
+                                    <i class="fas fa-eye"></i>
+                                </button>
+                                <button onclick="editKaryawan(this.parentElement.parentElement)" class="text-blue-500 hover:text-green-700">
+                                    <i class="fas fa-edit"></i>
+                                </button>
+                                <button onclick="hapusKaryawan(this.parentElement.parentElement)" class="text-red-500 hover:text-red-700">
+                                    <i class="fas fa-trash"></i>
+                                </button>
+                            </td>
+                        </tr>
+                        <tr class="bg-white hover:bg-gray-100">
+                            <td class="px-4 py-2 border text-center">6</td>
+                            <td class="px-4 py-2 border text-center">K006</td>
+                            <td class="px-4 py-2 border">Yovan Fiqri</td>
+                            <td class="px-4 py-2 border">Fauzan@gmail.com</td>
+                            <td class="px-4 py-2 border">Pamulang</td>
+                            <td class="px-4 py-2 border text-center">Staff</td>
+                            <td class="px-4 py-2 border text-center space-x-2">
+                                <button onclick="lihatKaryawan(this.parentElement.parentElement)" class="text-blue-500 hover:text-blue-700">
+                                    <i class="fas fa-eye"></i>
+                                </button>
+                                <button onclick="editKaryawan(this.parentElement.parentElement)" class="text-blue-500 hover:text-green-700">
+                                    <i class="fas fa-edit"></i>
+                                </button>
+                                <button onclick="hapusKaryawan(this.parentElement.parentElement)" class="text-red-500 hover:text-red-700">
+                                    <i class="fas fa-trash"></i>
+                                </button>
+                            </td>
+                        </tr>
+                        <tr class="bg-white hover:bg-gray-100">
+                            <td class="px-4 py-2 border text-center">7</td>
+                            <td class="px-4 py-2 border text-center">K008</td>
+                            <td class="px-4 py-2 border">Fauzan</td>
+                            <td class="px-4 py-2 border">Fauzan@gmail.com</td>
+                            <td class="px-4 py-2 border">Pamulang</td>
+                            <td class="px-4 py-2 border text-center">Staff</td>
+                            <td class="px-4 py-2 border text-center space-x-2">
+                                <button onclick="lihatKaryawan(this.parentElement.parentElement)" class="text-blue-500 hover:text-blue-700">
+                                    <i class="fas fa-eye"></i>
+                                </button>
+                                <button onclick="editKaryawan(this.parentElement.parentElement)" class="text-blue-500 hover:text-green-700">
+                                    <i class="fas fa-edit"></i>
+                                </button>
+                                <button onclick="hapusKaryawan(this.parentElement.parentElement)" class="text-red-500 hover:text-red-700">
+                                    <i class="fas fa-trash"></i>
+                                </button>
+                            </td>
+                        </tr>
+                        <!-- Tambahkan baris data lain di sini -->
+                    </tbody>
+                </table>
+            </div>
+            <!--form tambah karyawan-->
+            <div id="formTambahKaryawan" class="fixed inset-0 bg-gray-800 bg-opacity-50 flex justify-center items-center hidden">
+                <div class="bg-white p-6 rounded shadow-lg w-96">
+                    <h3 class="text-lg font-bold mb-4">Tambah Karyawan</h3>
+                    <div class="mb-2">
+                        <label class="block">Kode:</label>
+                        <input type="text" id="kode" class="w-full border rounded p-2">
+                    </div>
+                    <div class="mb-2">
+                        <label class="block">Nama:</label>
+                        <input type="text" id="nama" class="w-full border rounded p-2">
+                    </div>
+                    <div class="mb-2">
+                        <label class="block">Email:</label>
+                        <input type="email" id="email" class="w-full border rounded p-2">
+                    </div>
+                    <div class="mb-2">
+                        <label class="block">Alamat:</label>
+                        <input type="text" id="alamat" class="w-full border rounded p-2">
+                    </div>
+                    <div class="mb-2">
+                        <label class="block">Jabatan:</label>
+                        <input type="text" id="jabatan" class="w-full border rounded p-2">
+                    </div>
+                    <div class="flex justify-end space-x-2 mt-4">
+                        <button onclick="tutupForm()" class="bg-gray-500 text-white px-4 py-2 rounded hover:bg-gray-600">Batal</button>
+                        <button onclick="tambahKaryawan()" class="bg-blue-500 text-white px-4 py-2 rounded shadow hover:bg-blue-600">+ Tambah Karyawan</button>
+                    </div>
+                </div>
+        </div>            
+        </div>
+    </div>
+    <script>
+        // Fungsi untuk menggulir ke atas
+        function scrollToTop() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth' // Menambahkan efek gulir yang halus
+            });
+        }
+    
+        // Menambahkan event listener hanya pada tautan dengan kelas 'scroll-to-top'
+        document.querySelectorAll('nav a.scroll-to-top').forEach(link => {
+            link.addEventListener('click', (e) => {
+                // Menggulung ke atas saat tautan diklik
+                scrollToTop();
+            });
+        });
+    </script>  
+    <script>
+       let noUrut = 8;
+        let barisEdit = null; // Menyimpan baris yang sedang diedit
+
+        // Fungsi untuk menampilkan form tambah karyawan
+        function showForm() {
+            document.getElementById("formTambahKaryawan").classList.remove("hidden");
+        }
+
+        // Fungsi untuk menutup form tambah karyawan dan mengosongkan input
+        function tutupForm() {
+            document.getElementById("formTambahKaryawan").classList.add("hidden");
+            document.getElementById("kode").value = "";
+            document.getElementById("nama").value = "";
+            document.getElementById("email").value = "";
+            document.getElementById("alamat").value = "";
+            document.getElementById("jabatan").value = "";
+            barisEdit = null; // Reset baris edit
+        }
+
+        // Fungsi untuk menambahkan atau memperbarui karyawan ke dalam tabel
+        function tambahKaryawan() {
+            // Mengambil nilai dari input
+            const kode = document.getElementById("kode").value.trim();
+            const nama = document.getElementById("nama").value.trim();
+            const email = document.getElementById("email").value.trim();
+            const alamat = document.getElementById("alamat").value.trim();
+            const jabatan = document.getElementById("jabatan").value.trim();
+
+            if (kode && nama && email && alamat && jabatan) {
+                if (barisEdit) {
+                    // Update baris yang sedang diedit
+                    barisEdit.cells[1].innerText = kode;
+                    barisEdit.cells[2].innerText = nama;
+                    barisEdit.cells[3].innerText = email;
+                    barisEdit.cells[4].innerText = alamat;
+                    barisEdit.cells[5].innerText = jabatan;
+                } else {
+                    // Tambah karyawan baru
+                    const tabel = document.getElementById("tabelKaryawan").getElementsByTagName("tbody")[0];
+                    const row = tabel.insertRow();
+                    row.insertCell(0).innerText = noUrut++;
+                    row.insertCell(1).innerText = kode;
+
+                    const namaCell = row.insertCell(2);
+                    namaCell.innerText = nama;
+                    namaCell.classList.add("text-left");
+                    namaCell.style.paddingLeft = "17px"; // Menambah padding kiri
+    
+                    const emailCell = row.insertCell(3);
+                    emailCell.innerText = email;
+                    emailCell.classList.add("text-left");
+                    emailCell.style.paddingLeft = "17px";
+
+                    const alamatCell = row.insertCell(4);
+                    alamatCell.innerText = alamat;
+                    alamatCell.classList.add("text-left");
+                    alamatCell.style.paddingLeft = "17px";
+                    row.insertCell(5).innerText = jabatan;
+
+                    row.cells[0].classList.add("text-center");
+                    row.cells[1].classList.add("text-center");
+                    row.cells[5].classList.add("text-center");
+
+                    const aksiCell = row.insertCell(6);
+                    aksiCell.classList.add("text-center", "space-x-2");
+                    aksiCell.innerHTML = `
+                        <button onclick="lihatKaryawan(this.parentElement.parentElement)" class="text-blue-500 hover:text-blue-700">
+                            <i class="fas fa-eye"></i>
+                        </button>
+                        <button onclick="editKaryawan(this.parentElement.parentElement)" class="text-blue-500 hover:text-green-700">
+                            <i class="fas fa-edit"></i>
+                        </button>
+                        <button onclick="hapusKaryawan(this.parentElement.parentElement)" class="text-red-500 hover:text-red-700">
+                            <i class="fas fa-trash"></i>
+                        </button>
+                    `;
+                }
+
+                tutupForm(); // Tutup form setelah tambah/edit
+            } else {
+                alert("Semua field harus diisi!");
+            }
+        }
+
+        // Fungsi untuk melihat detail karyawan
+        function lihatKaryawan(row) {
+            alert("Menampilkan detail untuk: " + row.cells[2].innerText);
+        }
+
+        // Fungsi untuk mengedit karyawan
+        function editKaryawan(row) {
+            barisEdit = row; // Simpan baris yang diedit
+            document.getElementById("kode").value = row.cells[1].innerText;
+            document.getElementById("nama").value = row.cells[2].innerText;
+            document.getElementById("email").value = row.cells[3].innerText;
+            document.getElementById("alamat").value = row.cells[4].innerText;
+            document.getElementById("jabatan").value = row.cells[5].innerText;
+
+            showForm(); // Tampilkan form dengan data yang diisi
+        }
+
+        // Fungsi untuk menghapus karyawan
+        function hapusKaryawan(row) {
+            if (confirm("Apakah Anda yakin ingin menghapus karyawan ini?")) {
+                row.parentNode.removeChild(row); // Menghapus baris dari tabel
+            }
+        }
+    </script>    
+</body>
+</html>
