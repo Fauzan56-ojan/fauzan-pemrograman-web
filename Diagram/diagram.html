@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Laporan Penjualan</title>
+    <link href="sales.png" rel="icon">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            padding: 0;
+        }
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            margin-bottom: 20px;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            text-align: center;
+            padding: 8px;
+        }
+        th {
+            background-color: #9fbff0;
+        }
+        canvas {
+            max-width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <table style="border: 1px solid black; table-layout: fixed; width: 100%;">
+        <thead>
+            <tr>
+                <th rowspan="2"></th>
+                <th colspan="12">Bulan</th>
+            </tr>
+            <tr>
+                <th>Januari</th>
+                <th>Februari</th>
+                <th>Maret</th>
+                <th>April</th>
+                <th>Mei</th>
+                <th>Juni</th>
+                <th>Juli</th>
+                <th>Agustus</th>
+                <th>September</th>
+                <th>Oktober</th>
+                <th>November</th>
+                <th>Desember</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>2023</td>
+                <td>4.017</td>
+                <td>6.135</td>
+                <td>7.091</td>
+                <td>5.841</td>
+                <td>5.036</td>
+                <td>4.547</td>
+                <td>3.467</td>
+                <td>3.970</td>
+                <td>6.313</td>
+                <td>3.595</td>
+                <td>9.207</td>
+                <td>5.945</td>
+            </tr>
+            <tr>
+                <td>2024</td>
+                <td>2.416</td>
+                <td>4.136</td>
+                <td>7.935</td>
+                <td>8.004</td>
+                <td>9.505</td>
+                <td>5.026</td>
+                <td>6.108</td>
+                <td>6.343</td>
+                <td>9.404</td>
+                <td>9.280</td>
+                <td>9.287</td>
+                <td>8.689</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <canvas id="salesChart"></canvas>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        const ctx = document.getElementById('salesChart').getContext('2d');
+        const salesChart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: ['Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 'Juli', 'Agustus', 'September', 'Oktober', 'November', 'Desember'],
+                datasets: [
+                    {
+                        label: '2023',
+                        data: [4017, 6135, 7091, 5841, 5036, 4547, 3467, 3970, 6313, 3595, 9207, 5945],
+                        backgroundColor: 'rgba(0, 0, 255)',
+                        borderColor: 'rgba(54, 162, 235, 1)',
+                        borderWidth: 1
+                    },
+                    {
+                        label: '2024',
+                        data: [2416, 4136, 7935, 8004, 9505, 5026, 6108, 6343, 9404, 9280, 9287, 8689],
+                        backgroundColor: 'rgba(255, 0, 0)',
+                        borderColor: 'rgba(255, 99, 132, 1)',
+                        borderWidth: 1
+                    }
+                ]
+            },
+            options: {
+                responsive: true,
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+
+        function updateChartData() {
+            const table = document.querySelector('table');
+            const rows = table.querySelectorAll('tbody tr');
+            const data2022 = [];
+            const data2023 = [];
+
+            rows.forEach(row => {
+                const cells = row.querySelectorAll('td');
+                data2022.push(parseFloat(cells[1].innerText.replace(',', '')));
+                data2023.push(parseFloat(cells[2].innerText.replace(',', '')));
+            });
+
+            salesChart.data.datasets[0].data = data2022;
+            salesChart.data.datasets[1].data = data2023;
+            salesChart.update();
+        }
+
+        document.querySelectorAll('td[contenteditable="true"]').forEach(cell => {
+            cell.addEventListener('input', updateChartData);
+        });
+    </script>
+</body>
+</html>
