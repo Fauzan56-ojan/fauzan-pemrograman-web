@@ -334,20 +334,43 @@
                         <div class="row align-items-center">
                             <div class="col-md-6">
                                 <div class="contact-info">
-                                    <p><i class="fa fa-user"></i>Fauzan Kholid</p>
-                                    <p><i class="fa fa-tag"></i>Web Developer</p>
-                                    <p><i class="fa fa-envelope"></i><a href="mailto:info@example.com">ojan234@gmail.com</a></p>
-                                    <p><i class="fa fa-phone"></i><a href="tel:+1234567890">085279683542</a></p>
-                                    <p><i class="fa fa-map-marker"></i>Cisoka, Tangerang, Banten</p>
+                                    <h3>Informasi Kontak</h3>
+                                    <p><i class="fa fa-user"></i> Fauzan Kholid</p>
+                                    <p><i class="fa fa-tag"></i> Web Developer</p>
+                                    <p><i class="fa fa-envelope"></i> <a href="mailto:ojan234@gmail.com">ojan234@gmail.com</a></p>
+                                    <p><i class="fa fa-phone"></i> <a href="tel:+085279683542">085279683542</a></p>
+                                    <p><i class="fa fa-map-marker"></i> Universitas Pamulang, Viktor</p>
                                     <div class="social">
-                                        <a class="btn" href=""><i class="fab fa-twitter"></i></a>
-                                        <a class="btn" href=""><i class="fab fa-facebook-f"></i></a>
-                                        <a class="btn" href=""><i class="fab fa-linkedin-in"></i></a>
-                                        <a class="btn" href=""><i class="fab fa-instagram"></i></a>
-                                        <a class="btn" href=""><i class="fab fa-youtube"></i></a>
+                                        <a class="btn btn-primary" href="https://twitter.com"><i class="fab fa-twitter"></i></a>
+                                        <a class="btn btn-primary" href="https://facebook.com"><i class="fab fa-facebook-f"></i></a>
+                                        <a class="btn btn-primary" href="https://linkedin.com"><i class="fab fa-linkedin-in"></i></a>
+                                        <a class="btn btn-primary" href="https://instagram.com"><i class="fab fa-instagram"></i></a>
+                                        <a class="btn btn-primary" href="https://youtube.com"><i class="fab fa-youtube"></i></a>
                                     </div>
                                 </div>
+                                <div id="map" style="margin-top: 20px; height: 300px; border-radius: 10px;"></div>
                             </div>
+                            
+                            <script>
+                                function initMap() {
+                                    // Koordinat Universitas Pamulang Viktor
+                                    const lokasiKantor = { lat: -6.346227, lng: 106.691519 };
+                            
+                                    // Membuat peta dan mengatur lokasi pusat
+                                    const map = new google.maps.Map(document.getElementById("map"), {
+                                        zoom: 15, // Tingkat zoom
+                                        center: lokasiKantor,
+                                    });
+                            
+                                    // Menambahkan marker di lokasi
+                                    const marker = new google.maps.Marker({
+                                        position: lokasiKantor,
+                                        map: map,
+                                        title: "Universitas Pamulang Viktor",
+                                    });
+                                }
+                            </script>
+                            <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap" async defer></script>
                             <div class="col-md-6">
                                 <div class="form">
                                     <form>
